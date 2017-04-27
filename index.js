@@ -100,6 +100,20 @@ function request(appId, keyHandle) {
     return res;
 }
 
+function requestWithSeed(appId, keyHandle, challengeSeed) {
+    if (typeof appId !== 'string')
+        throw new Error("U2F request(): appId must be provided.");
+
+    var res = {
+        version: "U2F_V2",
+        appId: appId,
+        challenge: toWebsafeBase64(crypto.createHash('sha256').update(challengeSeed).digest('base64'))
+    };
+    if (keyHandle)
+        res.keyHandle = keyHandle;
+    return res;
+}
+
 // Check registration data. We're checking correct challenge and certificate signature.
 // request: {version, appId, challenge} - from user session, kept on server.
 // registerData: {clientData, registrationData} - result of u2f.register

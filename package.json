@@ -1,10 +1,10 @@
 {
-  "name": "u2f",
+  "name": "u2f-bch",
   "version": "0.1.2",
-  "description": "U2F 2-factor authentication library",
+  "description": "BCH Modified U2F 2-factor authentication library",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ashtuchkin/u2f"
+    "url": "https://github.com/BlockchainHealth/u2f-1"
   },
   "keywords": [
     "U2F",
